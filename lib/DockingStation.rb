@@ -1,3 +1,5 @@
+require_relative 'Bike'
+
 class DockingStation
     attr_reader :bike
     
@@ -7,6 +9,7 @@ class DockingStation
     end
 
    def dock(bike)
+      fail 'Cannot add another bike: Capacity full' if @bike
       @bike = bike
    end
 
