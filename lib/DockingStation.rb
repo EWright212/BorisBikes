@@ -5,6 +5,11 @@ class DockingStation
 
   def initialize
     @bike_storage = []
+    @capacity
+  end
+
+  def capacity(given_capacity = DEFAULT_CAPACITY)
+      @capacity = given_capacity
   end
     
   def release_bike
