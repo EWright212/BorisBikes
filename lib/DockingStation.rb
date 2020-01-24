@@ -7,7 +7,7 @@ class DockingStation
   end
     
   def release_bike
-    fail 'No bikes available' if @bike_storage.empty?
+    fail 'No bikes available' if empty? == true
     @bike_storage.pop
   end
   
