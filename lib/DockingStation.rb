@@ -2,20 +2,29 @@ require_relative 'Bike'
 
 class DockingStation
     
-    def initialize
+  def initialize
     @bike_storage = []
-    end
+  end
     
-    def release_bike
-      fail 'No bikes available' if @bike_storage.empty?
-      @bike_storage.pop
-    end
+  def release_bike
+    fail 'No bikes available' if @bike_storage.empty?
+    @bike_storage.pop
+  end
+  
+  def dock(bike)
+    fail 'Cannot add another bike: Capacity full' if full? == true
+    @bike_storage << bike
+    @bike_storage[0]
+  end
 
-   def dock(bike)
-      fail 'Cannot add another bike: Capacity full' if @bike_storage.count >= 20
-      @bike_storage << bike
-      return @bike_storage[0]
-   end
+  private
 
+  def full?
+    @bike_storage.count >= 20 ? true : false
+  end 
+
+  def empty?
+    @bike_storage.empty?
+  end
 end
 
