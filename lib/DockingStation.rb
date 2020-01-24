@@ -1,7 +1,8 @@
 require_relative 'Bike'
 
 class DockingStation
-    
+  DEFAULT_CAPACITY = 20
+
   def initialize
     @bike_storage = []
   end
@@ -20,7 +21,7 @@ class DockingStation
   private
 
   def full?
-    @bike_storage.count >= 20 ? true : false
+    @bike_storage.count >= DEFAULT_CAPACITY ? true : false
   end 
 
   def empty?
